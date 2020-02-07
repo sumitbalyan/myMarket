@@ -1,0 +1,5 @@
+{
+    "name" : "splash",
+    "private" : true,
+    "main": "./Container.js"
+}

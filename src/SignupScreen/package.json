@@ -1,0 +1,5 @@
+{
+    "name" : "signup",
+    "private" : true,
+    "main": "./Container.js"
+}

@@ -1,0 +1,5 @@
+{
+    "name" : "dealer",
+    "private" : true,
+    "main": "./Container.js"
+}

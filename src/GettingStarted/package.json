@@ -1,0 +1,5 @@
+{
+    "name": "gettingstarted",
+    "private": true,
+    "main": "./Container.js"
+}
