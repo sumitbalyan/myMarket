@@ -1,0 +1,5 @@
+{
+    "name" : "action",
+    "private" : true,
+    "main": "./Container.js"
+}

@@ -1,0 +1,5 @@
+{
+    "name" : "constant",
+    "private" : true,
+    "main": "./Container.js"
+}

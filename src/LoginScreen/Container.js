@@ -10,21 +10,13 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import {Colors} from '../styles/Colors';
-import {NavigationActions, StackActions} from 'react-navigation';
+//import {NavigationActions, StackActions} from 'react-navigation';
 
 const {width: WIDTH} = Dimensions.get('window');
 const Container = props => {
   const {navigation} = props;
-  const resetRoute = name => {
-    const resetAction = StackActions.reset({
-      index: 0,
-      actions: [NavigationActions.navigate({routeName: name})],
-    });
-    navigation.dispatch(resetAction);
-  };
   const _SignInAsync = () => {
-    navigation.navigate('App');
-    resetRoute('Home');
+    navigation.navigate('Signin');
   };
   const _SignUpAsync = () => {
     navigation.navigate('Signup');

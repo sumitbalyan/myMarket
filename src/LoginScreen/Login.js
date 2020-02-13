@@ -10,12 +10,16 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import {Colors} from '../styles/Colors';
+import {useDispatch} from 'react-redux';
+import {userAuthAction} from '../_action';
 
 const {width: WIDTH} = Dimensions.get('window');
 
 const Container = ({navigation}) => {
+  const dispatch = useDispatch();
   const _SignInAsync = () => {
-    alert('TODO:Login');
+    dispatch(userAuthAction.login({name: 'Sumit'}));
+    //navigation.navigate('Home');
   };
   const _SignUpAsync = () => {
     navigation.navigate('Signup');
@@ -25,15 +29,10 @@ const Container = ({navigation}) => {
       <SafeAreaView style={styles.body}>
         <StatusBar backgroundColor={Colors.blue} barStyle="default" />
         <Icon name="chart-line" size={80} color={Colors.white} />
-        <Text style={styles.textHeader}>Login</Text>
+        <Text style={styles.textHeader}>Sign in</Text>
         <View>
           <TouchableOpacity style={styles.btnLogin} onPress={_SignInAsync}>
-            <Text style={styles.btnLoginText}>Log in</Text>
-          </TouchableOpacity>
-        </View>
-        <View>
-          <TouchableOpacity style={styles.btnSignup} onPress={_SignUpAsync}>
-            <Text style={styles.btnSignupText}>Sign Up</Text>
+            <Text style={styles.btnLoginText}>Sign in</Text>
           </TouchableOpacity>
         </View>
       </SafeAreaView>

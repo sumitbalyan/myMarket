@@ -1,0 +1,5 @@
+{
+    "name" : "reducer",
+    "private" : true,
+    "main": "./Container.js"
+}

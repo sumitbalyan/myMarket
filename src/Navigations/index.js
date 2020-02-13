@@ -1,3 +1,3 @@
-import Index from './LoginNavigation';
+import Index from './AuthLoading';
 
 export default Index;

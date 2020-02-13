@@ -10,20 +10,12 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Colors} from '../styles/Colors';
-import {StackActions, NavigationActions} from 'react-navigation';
 
 const {width: WIDTH} = Dimensions.get('window');
 
 const Container = ({navigation}) => {
-  const resetRoute = () => {
-    const resetAction = StackActions.reset({
-      index: 0,
-      actions: [NavigationActions.navigate({routeName: 'Landing'})],
-    });
-    navigation.dispatch(resetAction);
-  };
   const _SignUpAsync = () => {
-    navigation.navigate();
+    //navigation.navigate();
     //resetRoute();
   };
   return (

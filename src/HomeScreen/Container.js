@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 28,
     fontWeight: '900',
-    color: Colors.white,
+    color: Colors.blue,
   },
 });
 export default Container;
