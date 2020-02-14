@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, {useEffect} from 'react';
 import {
   View,
   Text,
@@ -7,26 +8,80 @@ import {
   Dimensions,
   TouchableOpacity,
   SafeAreaView,
+  Platform,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import {useDispatch} from 'react-redux';
 import {Colors} from '../styles/Colors';
 import {useTheme} from '@react-navigation/native';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import FingerprintScanner from 'react-native-fingerprint-scanner';
+import {userAuthAction} from '../_action/Container';
 
 const {width: WIDTH} = Dimensions.get('window');
+
 const Container = props => {
+  const dispatch = useDispatch();
   const paperTheme = useTheme();
   const {navigation} = props;
+  useEffect(() => {
+    _fingerAuth();
+    return () => {
+      FingerprintScanner.release();
+    };
+  }, []);
   const _SignInAsync = () => {
     navigation.navigate('Signin');
   };
   const _SignUpAsync = () => {
     navigation.navigate('Signup');
   };
+  const _fingerAuth = () => {
+    FingerprintScanner.release();
+    if (requiresLegacyAuthentication()) {
+      authLegacy();
+    } else {
+      authCurrent();
+    }
+  };
+  const requiresLegacyAuthentication = () => {
+    return Platform.Version < 23;
+  };
+
+  const authCurrent = () => {
+    FingerprintScanner.authenticate({
+      description: 'Log in with Biometrics',
+    }).then(() => {
+      signin();
+    });
+  };
+
+  const authLegacy = () => {
+    FingerprintScanner.authenticate({
+      onAttempt: handleAuthenticationAttemptedLegacy,
+    })
+      .then(() => {
+        //this.props.handlePopupDismissedLegacy();
+        signin();
+      })
+      .catch(error => {
+        this.setState({
+          errorMessageLegacy: error.message,
+          biometricLegacy: error.biometric,
+        });
+      });
+  };
+  const signin = () => {
+    dispatch(userAuthAction.login({name: 'Sumit'}));
+  };
+  const handleAuthenticationAttemptedLegacy = error => {
+    this.setState({errorMessageLegacy: error.message});
+  };
   return (
     <View style={styles.body}>
       <SafeAreaView style={styles.body}>
         <StatusBar
-          backgroundColor={paperTheme.colors.primary  }
+          backgroundColor={paperTheme.colors.primary}
           barStyle="default"
         />
         <Icon name="chart-line" size={80} color={Colors.white} />
@@ -34,6 +89,16 @@ const Container = props => {
         <Text style={styles.text}>
           Visualize realtime updates from your bussiness.
         </Text>
+        <View>
+          <TouchableOpacity onPress={() => _fingerAuth()}>
+            <MaterialCommunityIcons
+              name="fingerprint"
+              size={60}
+              color={Colors.white}
+            />
+          </TouchableOpacity>
+        </View>
+        <Text style={styles.text}>or</Text>
         <View>
           <TouchableOpacity style={styles.btnLogin} onPress={_SignInAsync}>
             <Text style={styles.btnLoginText}>Log in</Text>
