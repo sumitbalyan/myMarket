@@ -1,8 +1,8 @@
 import React from 'react';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
-import Feed from '../components/Feed';
-import Messages from '../components/Messages';
-import Notification from '../components/Notification';
+import Home from '../HomeScreen';
+import Settings from '../Settings';
+import Notification from '../Notification';
 import {useTheme, Portal, FAB} from 'react-native-paper';
 import {useIsFocused} from '@react-navigation/native';
 
@@ -11,13 +11,13 @@ const Tab = createMaterialBottomTabNavigator();
 const TabsNavigation = props => {
   const routeName = props.route.state
     ? props.route.state.routes[props.route.state.index].name
-    : 'Feed';
+    : 'Home';
   const theme = useTheme();
   const isfocused = useIsFocused();
   let icon = 'feather';
 
   switch (routeName) {
-    case 'Messages':
+    case 'Settings':
       icon = 'email-plus-outline';
       break;
     default:
@@ -27,7 +27,7 @@ const TabsNavigation = props => {
   return (
     <React.Fragment>
       <Tab.Navigator
-        initialRouteName="Feed"
+        initialRouteName="Home"
         backBehavior="initialRoute"
         shifting={true}
         activeColor={theme.colors.primary}
@@ -35,8 +35,8 @@ const TabsNavigation = props => {
         barStyle={{backgroundColor: theme.colors.background}}
         sceneAnimationEnabled={false}>
         <Tab.Screen
-          name="Feed"
-          component={Feed}
+          name="Home"
+          component={Home}
           options={{
             tabBarIcon: 'home-account',
           }}
@@ -49,10 +49,10 @@ const TabsNavigation = props => {
           }}
         />
         <Tab.Screen
-          name="Messages"
-          component={Messages}
+          name="Settings"
+          component={Settings}
           options={{
-            tabBarIcon: 'message-text-outline',
+            tabBarIcon: 'settings-outline',
           }}
         />
       </Tab.Navigator>

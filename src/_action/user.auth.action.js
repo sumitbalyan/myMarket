@@ -21,7 +21,14 @@ const login = data => {
     dispatch(success({userToken: '1234567890'}));
   };
 };
-
+const logout = () => {
+  const {SIGN_OUT} = userAuthConstant;
+  const logoutMe = () => ({type: SIGN_OUT});
+  return dispatch => {
+    dispatch(logoutMe());
+  };
+};
 export const userAuthAction = {
   login,
+  logout,
 };

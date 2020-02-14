@@ -14,7 +14,7 @@ const persistConfig = {
   // Whitelist (Save Specific Reducers)
   whitelist: ['userAuth'],
   // Blacklist (Don't Save Specific Reducers)
-  blacklist: ['navigation'],
+  blacklist: [],
 };
 // Middleware: Redux Persist Persisted Reducer
 const persistedReducer = persistReducer(persistConfig, rootReducer);

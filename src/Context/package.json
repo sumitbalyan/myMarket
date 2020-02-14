@@ -1,0 +1,5 @@
+{
+    "name": "preference",
+    "private": true,
+    "main": "./Container.js"
+}

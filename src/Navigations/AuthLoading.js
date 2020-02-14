@@ -3,8 +3,8 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {useSelector} from 'react-redux';
 import Landing from '../LoginScreen';
 import Signin from '../LoginScreen/Login';
-import Home from '../HomeScreen';
 import Signup from '../SignupScreen';
+import DrawerNavigation from './DrawerNavigation';
 
 const Stack = createStackNavigator();
 
@@ -40,7 +40,7 @@ export default function AuthNavigation(props) {
           />
         </>
       ) : (
-        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Home" component={DrawerNavigation} />
       )}
     </Stack.Navigator>
   );

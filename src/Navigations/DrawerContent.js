@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
+import {useDispatch} from 'react-redux';
 import {DrawerItem, DrawerContentScrollView} from '@react-navigation/drawer';
 import {
   useTheme,
@@ -14,13 +15,13 @@ import {
   Button,
 } from 'react-native-paper';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import {PreferencesContext} from '../PreferencesContext';
+import {PreferencesContext} from '../Context';
+import {userAuthAction} from '../_action';
 import Photo from '../images/photo.jpg';
-import {AuthContext} from '../AuthContext';
 
 export default function DrawerContent(props) {
+  const dispatch = useDispatch();
   const paperTheme = useTheme();
-  const {signOut} = React.useContext(AuthContext);
   const {theme, toggleTheme} = React.useContext(PreferencesContext);
   return (
     <DrawerContentScrollView {...props}>
@@ -107,7 +108,7 @@ export default function DrawerContent(props) {
             <Button
               color="#fff"
               style={styles.logoutBackground}
-              onPress={signOut}>
+              onPress={() => dispatch(userAuthAction.logout())}>
               Log out
             </Button>
           </View>

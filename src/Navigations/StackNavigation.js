@@ -4,11 +4,11 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {Appbar, Avatar} from 'react-native-paper';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import Details from '../components/Details';
+import Sales from '../Sales';
 import {useTheme} from 'react-native-paper';
 import TabsNavigation from './TabsNavigation';
 import Photo from '../images/photo.jpg';
-import Profile from '../components/Profile';
+import Profile from '../Profile';
 
 const Header = ({scene, previous, navigation}) => {
   const theme = useTheme();
@@ -56,7 +56,7 @@ const Stack = createStackNavigator();
 const StackNavigation = () => {
   return (
     <Stack.Navigator
-      initialRouteName="FeedList"
+      initialRouteName="Home"
       headerMode="screen"
       screenOptions={{
         header: ({scene, previous, navigation}) => (
@@ -64,14 +64,14 @@ const StackNavigation = () => {
         ),
       }}>
       <Stack.Screen
-        name="FeedList"
+        name="Home"
         component={TabsNavigation}
-        options={{headerTitle: 'Twitter'}}
+        options={{headerTitle: 'Home'}}
       />
       <Stack.Screen
-        name="Details"
-        component={Details}
-        options={{headerTitle: 'Tweet'}}
+        name="Sales"
+        component={Sales}
+        options={{headerTitle: 'Sales'}}
       />
       <Stack.Screen
         name="Profile"

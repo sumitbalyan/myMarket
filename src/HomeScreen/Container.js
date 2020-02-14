@@ -1,12 +1,17 @@
 import React from 'react';
 import {View, Text, StyleSheet, StatusBar} from 'react-native';
 import {Colors} from '../styles/Colors';
+import {useTheme} from '@react-navigation/native';
 
 const Container = () => {
+  const paperTheme = useTheme();
   return (
     <View style={styles.body}>
-      <StatusBar backgroundColor={Colors.blue} barStyle="default" />
-      <Text style={styles.text}>Dealer</Text>
+      <StatusBar
+        backgroundColor={paperTheme.colors.primary}
+        barStyle="default"
+      />
+      <Text style={styles.text}>Home</Text>
     </View>
   );
 };
@@ -16,7 +21,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: Colors.white,
   },
   text: {
     fontSize: 28,

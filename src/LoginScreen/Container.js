@@ -10,10 +10,11 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import {Colors} from '../styles/Colors';
-//import {NavigationActions, StackActions} from 'react-navigation';
+import {useTheme} from '@react-navigation/native';
 
 const {width: WIDTH} = Dimensions.get('window');
 const Container = props => {
+  const paperTheme = useTheme();
   const {navigation} = props;
   const _SignInAsync = () => {
     navigation.navigate('Signin');
@@ -24,7 +25,10 @@ const Container = props => {
   return (
     <View style={styles.body}>
       <SafeAreaView style={styles.body}>
-        <StatusBar backgroundColor={Colors.blue} barStyle="default" />
+        <StatusBar
+          backgroundColor={paperTheme.colors.primary  }
+          barStyle="default"
+        />
         <Icon name="chart-line" size={80} color={Colors.white} />
         <Text style={styles.textHeader}>Wellcome to myMarket</Text>
         <Text style={styles.text}>
