@@ -10,14 +10,14 @@ const Container = () => {
   useEffect(() => {
     findCoordinates();
     // fetch(
-    //   'https://maps.googleapis.com/maps/api/geocode/json?latlng=30.42692350,77.90955910&sensor=true&key=AIzaSyB8ljEJXgNBHKmtXK_Vo4vPD5SgV7koV48',
+    //   'https://maps.googleapis.com/maps/api/geocode/json?latlng=30.42692350,77.90955910&sensor=true&key=Google_key',
     // ).then(res =>
     //   res.json().then(result => {
     //     setAddress(result);
     //   }),
     // );
     //TODO: Find address
-    //URL https://maps.googleapis.com/maps/api/geocode/json?latlng=30.42692350,77.90955910&sensor=true&key=AIzaSyA9uqPwRRLRO6lAsGzWVojPBuCcHu2wxPQ
+    //URL https://maps.googleapis.com/maps/api/geocode/json?latlng=30.42692350,77.90955910&sensor=true&key=Google_key
   }, []);
   const paperTheme = useTheme();
   const findCoordinates = () => {

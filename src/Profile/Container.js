@@ -7,19 +7,19 @@ const Container = () => {
   return (
     <View style={styles.body}>
       <Avatar.Icon style={styles.avtar} icon="account-edit" size={60} />
-      <List.Section style={styles.text}>
-        <List.Subheader>Account Settings</List.Subheader>
+      <List.Section style={styles.section}>
+        <List.Subheader style={{fontSize:18, fontWeight:'bold'}}>Account Settings</List.Subheader>
         <List.Item
           style={styles.item}
           title="Change Password"
           titleNumberOfLines={1}
-          left={() => <List.Icon color="#000" icon="pencil" />}
+          left={() => <List.Icon icon="pencil" />}
           onPress={() => {}}
         />
         <List.Item
           style={styles.item}
           title="Log Out"
-          left={() => <List.Icon color="#000" icon="logout" />}
+          left={() => <List.Icon icon="logout" />}
           onPress={() => {}}
         />
       </List.Section>
@@ -36,9 +36,7 @@ const styles = StyleSheet.create({
   avtar: {
     marginTop: 5,
   },
-  text: {
-    fontSize: 20,
-    fontWeight: '900',
+  section: {
     alignSelf: 'stretch',
   },
   item: {
@@ -46,6 +44,7 @@ const styles = StyleSheet.create({
     borderBottomColor: Colors.grey,
     marginLeft: 5,
     marginRight: 5,
+    fontSize: 8,
   },
 });
 
