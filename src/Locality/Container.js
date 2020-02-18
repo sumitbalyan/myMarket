@@ -1,16 +1,14 @@
 import React from 'react';
-import {View, Text, StyleSheet, StatusBar} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 import {Colors} from '../styles/Colors';
 
 const Container = () => {
   return (
     <View style={styles.body}>
-      <StatusBar backgroundColor={Colors.blue} barStyle="default" />
-      <Text style={styles.text}>Customers</Text>
+      <Text style={styles.text}>Add Locality</Text>
     </View>
   );
 };
-
 const styles = StyleSheet.create({
   body: {
     flex: 1,

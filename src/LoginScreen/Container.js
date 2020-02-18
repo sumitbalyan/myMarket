@@ -84,7 +84,11 @@ const Container = props => {
           backgroundColor={paperTheme.colors.primary}
           barStyle="default"
         />
-        <Icon name="chart-line" size={80} color={Colors.white} />
+        <MaterialCommunityIcons
+          name="point-of-sale"
+          size={80}
+          color={Colors.white}
+        />
         <Text style={styles.textHeader}>Wellcome to myMarket</Text>
         <Text style={styles.text}>
           Visualize realtime updates from your bussiness.

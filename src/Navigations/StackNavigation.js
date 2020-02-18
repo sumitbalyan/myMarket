@@ -3,12 +3,15 @@ import {TouchableOpacity} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {Appbar, Avatar} from 'react-native-paper';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-
 import Sales from '../Sales';
 import {useTheme} from 'react-native-paper';
 import TabsNavigation from './TabsNavigation';
 import Photo from '../images/photo.jpg';
-import Profile from '../Profile';
+import Orders from '../Orders';
+import Products from '../Products';
+import Customers from '../Customers';
+import Locality from '../Locality';
+import {Colors} from '../styles/Colors';
 
 const Header = ({scene, previous, navigation}) => {
   const theme = useTheme();
@@ -41,10 +44,10 @@ const Header = ({scene, previous, navigation}) => {
             title
           ) : (
             <MaterialCommunityIcons
-              style={{marginRight: 10}}
-              name="twitter"
+              name="point-of-sale"
               size={40}
-              color={theme.colors.primary}
+              color={Colors.blue}
+              style={{marginRight: 10}}
             />
           )
         }
@@ -74,9 +77,24 @@ const StackNavigation = () => {
         options={{headerTitle: 'Sales'}}
       />
       <Stack.Screen
-        name="Profile"
-        component={Profile}
-        options={{headerTitle: 'Profile'}}
+        name="Orders"
+        component={Orders}
+        options={{headerTitle: 'Orders'}}
+      />
+      <Stack.Screen
+        name="Products"
+        component={Products}
+        options={{headerTitle: 'Products'}}
+      />
+      <Stack.Screen
+        name="Customers"
+        component={Customers}
+        options={{headerTitle: 'Customers'}}
+      />
+      <Stack.Screen
+        name="Locality"
+        component={Locality}
+        options={{headerTitle: 'Locality'}}
       />
     </Stack.Navigator>
   );

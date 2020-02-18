@@ -18,6 +18,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import {PreferencesContext} from '../Context';
 import {userAuthAction} from '../_action';
 import Photo from '../images/photo.jpg';
+import {Colors} from '../styles/Colors';
 
 export default function DrawerContent(props) {
   const dispatch = useDispatch();
@@ -54,21 +55,24 @@ export default function DrawerContent(props) {
         <Drawer.Section style={styles.drawerSection}>
           <DrawerItem
             icon={({color, size}) => (
-              <MaterialCommunityIcons
-                name="account-outline"
-                color={color}
-                size={size}
-              />
+              <MaterialCommunityIcons name="tune" color={color} size={size} />
             )}
-            label="Profile"
-            onPress={() => props.navigation.navigate('Profile')}
+            label="Customers"
+            onPress={() => props.navigation.navigate('Customers')}
           />
           <DrawerItem
             icon={({color, size}) => (
               <MaterialCommunityIcons name="tune" color={color} size={size} />
             )}
-            label="Preferences"
-            onPress={() => {}}
+            label="Orders"
+            onPress={() => props.navigation.navigate('Orders')}
+          />
+          <DrawerItem
+            icon={({color, size}) => (
+              <MaterialCommunityIcons name="tune" color={color} size={size} />
+            )}
+            label="Products"
+            onPress={() => props.navigation.navigate('Products')}
           />
           <DrawerItem
             icon={({color, size}) => (
@@ -78,8 +82,19 @@ export default function DrawerContent(props) {
                 size={size}
               />
             )}
-            label="Bookmarks"
-            onPress={() => {}}
+            label="Sales"
+            onPress={() => props.navigation.navigate('Sales')}
+          />
+          <DrawerItem
+            icon={({color, size}) => (
+              <MaterialCommunityIcons
+                name="bookmark-outline"
+                color={color}
+                size={size}
+              />
+            )}
+            label="Locality"
+            onPress={() => props.navigation.navigate('Locality')}
           />
         </Drawer.Section>
         <Drawer.Section title="Preferences">
@@ -106,7 +121,7 @@ export default function DrawerContent(props) {
         <Drawer.Section>
           <View style={styles.logout}>
             <Button
-              color="#fff"
+              color={Colors.white}
               style={styles.logoutBackground}
               onPress={() => dispatch(userAuthAction.logout())}>
               Log out

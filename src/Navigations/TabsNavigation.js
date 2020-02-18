@@ -1,7 +1,9 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Home from '../HomeScreen';
-import Settings from '../Settings';
+import Profile from '../Profile';
 import Notification from '../Notification';
 import {useTheme, Portal, FAB} from 'react-native-paper';
 import {useIsFocused} from '@react-navigation/native';
@@ -17,7 +19,7 @@ const TabsNavigation = props => {
   let icon = 'feather';
 
   switch (routeName) {
-    case 'Settings':
+    case 'Profile':
       icon = 'email-plus-outline';
       break;
     default:
@@ -49,10 +51,12 @@ const TabsNavigation = props => {
           }}
         />
         <Tab.Screen
-          name="Settings"
-          component={Settings}
+          name="Profile"
+          component={Profile}
           options={{
-            tabBarIcon: 'settings-outline',
+            tabBarIcon: ({color, size}) => (
+              <MaterialCommunityIcons name="account" color={color} size={24} />
+            ),
           }}
         />
       </Tab.Navigator>

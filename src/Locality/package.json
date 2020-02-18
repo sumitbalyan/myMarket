@@ -1,0 +1,5 @@
+{
+    "name": "locality",
+    "private": true,
+    "main": "./Container.js"
+}

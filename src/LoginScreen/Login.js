@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   SafeAreaView,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {Colors} from '../styles/Colors';
 import {useDispatch} from 'react-redux';
 import {userAuthAction} from '../_action';
@@ -19,16 +19,12 @@ const Container = ({navigation}) => {
   const dispatch = useDispatch();
   const _SignInAsync = () => {
     dispatch(userAuthAction.login({name: 'Sumit'}));
-    //navigation.navigate('Home');
-  };
-  const _SignUpAsync = () => {
-    navigation.navigate('Signup');
   };
   return (
     <View style={styles.body}>
       <SafeAreaView style={styles.body}>
         <StatusBar backgroundColor={Colors.blue} barStyle="default" />
-        <Icon name="chart-line" size={80} color={Colors.white} />
+        <Icon name="point-of-sale" size={80} color={Colors.white} />
         <Text style={styles.textHeader}>Sign in</Text>
         <View>
           <TouchableOpacity style={styles.btnLogin} onPress={_SignInAsync}>
