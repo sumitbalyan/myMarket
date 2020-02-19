@@ -1,0 +1,5 @@
+{
+    "name": "maps",
+    "private": true,
+    "main": "./Container.js"
+}

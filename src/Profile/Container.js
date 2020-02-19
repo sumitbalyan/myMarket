@@ -8,7 +8,9 @@ const Container = () => {
     <View style={styles.body}>
       <Avatar.Icon style={styles.avtar} icon="account-edit" size={60} />
       <List.Section style={styles.section}>
-        <List.Subheader style={{fontSize:18, fontWeight:'bold'}}>Account Settings</List.Subheader>
+        <List.Subheader style={{fontSize: 18, fontWeight: '500'}}>
+          Account Settings
+        </List.Subheader>
         <List.Item
           style={styles.item}
           title="Change Password"

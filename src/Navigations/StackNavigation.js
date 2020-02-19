@@ -11,7 +11,10 @@ import Orders from '../Orders';
 import Products from '../Products';
 import Customers from '../Customers';
 import Locality from '../Locality';
+import Reports from '../Reports';
+import Maps from '../Maps';
 import {Colors} from '../styles/Colors';
+import Form from '../Customers/Form';
 
 const Header = ({scene, previous, navigation}) => {
   const theme = useTheme();
@@ -56,6 +59,29 @@ const Header = ({scene, previous, navigation}) => {
   );
 };
 const Stack = createStackNavigator();
+const CustomerStack = () => {
+  return (
+    <Stack.Navigator
+      initialRouteName="Home"
+      headerMode="none"
+      screenOptions={{
+        header: ({scene, previous, navigation}) => (
+          <Header scene={scene} previous={previous} navigation={navigation} />
+        ),
+      }}>
+      <Stack.Screen
+        name="Home"
+        component={Customers}
+        options={{headerTitle: 'Home'}}
+      />
+      <Stack.Screen
+        name="Form"
+        component={Form}
+        options={{headerTitle: 'Form'}}
+      />
+    </Stack.Navigator>
+  );
+};
 const StackNavigation = () => {
   return (
     <Stack.Navigator
@@ -88,13 +114,23 @@ const StackNavigation = () => {
       />
       <Stack.Screen
         name="Customers"
-        component={Customers}
+        component={CustomerStack}
         options={{headerTitle: 'Customers'}}
       />
       <Stack.Screen
         name="Locality"
         component={Locality}
         options={{headerTitle: 'Locality'}}
+      />
+      <Stack.Screen
+        name="Map"
+        component={Maps}
+        options={{headerTitle: 'Map'}}
+      />
+      <Stack.Screen
+        name="Reports"
+        component={Reports}
+        options={{headerTitle: 'Reports'}}
       />
     </Stack.Navigator>
   );

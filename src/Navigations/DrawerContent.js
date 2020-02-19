@@ -96,6 +96,28 @@ export default function DrawerContent(props) {
             label="Locality"
             onPress={() => props.navigation.navigate('Locality')}
           />
+          <DrawerItem
+            icon={({color, size}) => (
+              <MaterialCommunityIcons
+                name="bookmark-outline"
+                color={color}
+                size={size}
+              />
+            )}
+            label="Map"
+            onPress={() => props.navigation.navigate('Map')}
+          />
+          <DrawerItem
+            icon={({color, size}) => (
+              <MaterialCommunityIcons
+                name="bookmark-outline"
+                color={color}
+                size={size}
+              />
+            )}
+            label="Reports"
+            onPress={() => props.navigation.navigate('Reports')}
+          />
         </Drawer.Section>
         <Drawer.Section title="Preferences">
           <TouchableRipple
@@ -109,14 +131,14 @@ export default function DrawerContent(props) {
               </View>
             </View>
           </TouchableRipple>
-          <TouchableRipple onPress={() => {}}>
+          {/* <TouchableRipple onPress={() => {}}>
             <View style={styles.preference}>
               <Text>RTL</Text>
               <View pointerEvents="none">
                 <Switch color={paperTheme.colors.primary} value={false} />
               </View>
             </View>
-          </TouchableRipple>
+          </TouchableRipple> */}
         </Drawer.Section>
         <Drawer.Section>
           <View style={styles.logout}>

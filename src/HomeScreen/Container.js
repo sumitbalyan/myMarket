@@ -6,7 +6,6 @@ import Geolocation from '@react-native-community/geolocation';
 const Container = () => {
   const [state, setstate] = useState({lat: 0, lng: 0});
   const [error, setError] = useState('');
-  const [address, setAddress] = useState('');
   useEffect(() => {
     findCoordinates();
     // fetch(
@@ -48,7 +47,6 @@ const Container = () => {
       ) : (
         <Text>{JSON.stringify(state)}</Text>
       )}
-      <Text>{JSON.stringify(address)}</Text>
     </View>
   );
 };
