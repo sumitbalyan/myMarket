@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -291,7 +291,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
     borderColor: 'rgba(0,0,0,0.35)',
     borderWidth: 1,
-    borderRadius: 25,
+    borderRadius: 10,
   },
   pickerIcon: {
     position: 'absolute',
@@ -306,7 +306,7 @@ const styles = StyleSheet.create({
   input: {
     width: WIDTH - 45,
     height: 45,
-    borderRadius: 25,
+    borderRadius: 10,
     fontSize: 18,
     paddingLeft: 45,
     marginHorizontal: 25,

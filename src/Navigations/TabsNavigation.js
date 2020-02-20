@@ -7,6 +7,7 @@ import Profile from '../Profile';
 import Notification from '../Notification';
 import {useTheme, Portal, FAB} from 'react-native-paper';
 import {useIsFocused} from '@react-navigation/native';
+import { Colors } from '../styles/Colors';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -16,14 +17,14 @@ const TabsNavigation = props => {
     : 'Home';
   const theme = useTheme();
   const isfocused = useIsFocused();
-  let icon = 'feather';
+  let icon = 'plus';
 
   switch (routeName) {
     case 'Profile':
       icon = 'email-plus-outline';
       break;
     default:
-      icon = 'feather';
+      icon = 'plus';
       break;
   }
   return (
@@ -68,7 +69,7 @@ const TabsNavigation = props => {
             position: 'absolute',
             bottom: 100,
             right: 16,
-            backgroundColor: theme.colors.primary,
+            backgroundColor: Colors.blue,
           }}
           color="white"
         />

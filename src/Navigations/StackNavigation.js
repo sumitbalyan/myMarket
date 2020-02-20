@@ -62,7 +62,7 @@ const Stack = createStackNavigator();
 const CustomerStack = () => {
   return (
     <Stack.Navigator
-      initialRouteName="Home"
+      initialRouteName="Customers"
       headerMode="none"
       screenOptions={{
         header: ({scene, previous, navigation}) => (
@@ -70,9 +70,9 @@ const CustomerStack = () => {
         ),
       }}>
       <Stack.Screen
-        name="Home"
+        name="Customers"
         component={Customers}
-        options={{headerTitle: 'Home'}}
+        options={{headerTitle: 'Customers'}}
       />
       <Stack.Screen
         name="Form"
