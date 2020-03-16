@@ -7,7 +7,8 @@ import Profile from '../Profile';
 import Notification from '../Notification';
 import {useTheme, Portal, FAB} from 'react-native-paper';
 import {useIsFocused} from '@react-navigation/native';
-import { Colors } from '../styles/Colors';
+import {Colors} from '../styles/Colors';
+import { Alert } from 'react-native';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -19,14 +20,14 @@ const TabsNavigation = props => {
   const isfocused = useIsFocused();
   let icon = 'plus';
 
-  switch (routeName) {
-    case 'Profile':
-      icon = 'email-plus-outline';
-      break;
-    default:
-      icon = 'plus';
-      break;
-  }
+  // switch (routeName) {
+  //   case 'Profile':
+  //     icon = 'email-plus-outline';
+  //     break;
+  //   default:
+  //     icon = 'plus';
+  //     break;
+  // }
   return (
     <React.Fragment>
       <Tab.Navigator
@@ -61,19 +62,22 @@ const TabsNavigation = props => {
           }}
         />
       </Tab.Navigator>
-      <Portal>
-        <FAB
-          icon={icon}
-          visible={isfocused}
-          style={{
-            position: 'absolute',
-            bottom: 100,
-            right: 16,
-            backgroundColor: Colors.blue,
-          }}
-          color="white"
-        />
-      </Portal>
+      {routeName === 'Home' && (
+        <Portal>
+          <FAB
+            icon={icon}
+            visible={isfocused}
+            onPress={() => props.navigation.navigate('Customers')}
+            style={{
+              position: 'absolute',
+              bottom: 100,
+              right: 16,
+              backgroundColor: Colors.blue,
+            }}
+            color="white"
+          />
+        </Portal>
+      )}
     </React.Fragment>
   );
 };

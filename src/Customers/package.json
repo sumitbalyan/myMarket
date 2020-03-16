@@ -1,5 +1,5 @@
 {
-    "name" : "customers",
+    "name" : "form",
     "private" : true,
-    "main": "./Container.js"
+    "main": "./Form.js"
 }
