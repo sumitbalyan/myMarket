@@ -8,7 +8,7 @@ import Notification from '../Notification';
 import {useTheme, Portal, FAB} from 'react-native-paper';
 import {useIsFocused} from '@react-navigation/native';
 import {Colors} from '../styles/Colors';
-import { Alert } from 'react-native';
+import {useSelector} from 'react-redux';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -18,6 +18,7 @@ const TabsNavigation = props => {
     : 'Home';
   const theme = useTheme();
   const isfocused = useIsFocused();
+  const tabName = useSelector(state => state.navigation.tab);
   let icon = 'plus';
 
   // switch (routeName) {
@@ -62,12 +63,12 @@ const TabsNavigation = props => {
           }}
         />
       </Tab.Navigator>
-      {routeName === 'Home' && (
+      {routeName === 'Home' && tabName && (
         <Portal>
           <FAB
             icon={icon}
             visible={isfocused}
-            onPress={() => props.navigation.navigate('Customers')}
+            onPress={() => props.navigation.navigate(tabName)}
             style={{
               position: 'absolute',
               bottom: 100,

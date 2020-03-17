@@ -14,12 +14,15 @@ import {useTheme, useIsFocused} from '@react-navigation/native';
 import Geolocation from '@react-native-community/geolocation';
 import {Avatar} from 'react-native-paper';
 import {PreferencesContext} from '../Context/Container';
+import {useDispatch} from 'react-redux';
+import {navigationAction} from '../_action/Container';
 let dark = null;
 
 const Container = () => {
   const [state, setstate] = useState({lat: 0, lng: 0});
   const [error, setError] = useState('');
   const {theme} = React.useContext(PreferencesContext);
+  const dispatch = useDispatch();
   dark = theme.dark;
   useEffect(() => {
     findCoordinates();
@@ -240,7 +243,11 @@ const Container = () => {
       <View style={styles.scrollContainer}>
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
           <View>
-            <TouchableOpacity onPress={() => setData(custData)}>
+            <TouchableOpacity
+              onPress={() => {
+                setData(custData);
+                dispatch(navigationAction.setTab('Customers'));
+              }}>
               <Avatar.Icon
                 style={styles.avtar1}
                 color="#FF9500"
@@ -251,7 +258,11 @@ const Container = () => {
             <Text style={styles.text}>Customers</Text>
           </View>
           <View style={styles.containerAvtar}>
-            <TouchableOpacity onPress={() => setData(salesData)}>
+            <TouchableOpacity
+              onPress={() => {
+                setData(salesData);
+                dispatch(navigationAction.setTab('Sales'));
+              }}>
               <Avatar.Icon
                 style={styles.avtar2}
                 color="#EAAAE3"
@@ -262,7 +273,11 @@ const Container = () => {
             <Text style={styles.text}>Sales</Text>
           </View>
           <View style={styles.containerAvtar}>
-            <TouchableOpacity onPress={() => setData(ordersData)}>
+            <TouchableOpacity
+              onPress={() => {
+                setData(ordersData);
+                dispatch(navigationAction.setTab('Orders'));
+              }}>
               <Avatar.Icon
                 style={styles.avtar3}
                 color="#7ABA73"
@@ -284,7 +299,11 @@ const Container = () => {
             <Text style={styles.text}>Products</Text>
           </View>
           <View style={styles.containerAvtar}>
-            <TouchableOpacity onPress={() => setData(localityData)}>
+            <TouchableOpacity
+              onPress={() => {
+                setData(localityData);
+                dispatch(navigationAction.setTab('Locality'));
+              }}>
               <Avatar.Icon
                 style={styles.avtar5}
                 icon="city-variant-outline"
@@ -295,7 +314,11 @@ const Container = () => {
             <Text style={styles.text}>Locality</Text>
           </View>
           <View style={styles.containerAvtar}>
-            <TouchableOpacity onPress={() => setData(mapsData)}>
+            <TouchableOpacity
+              onPress={() => {
+                setData(mapsData);
+                dispatch(navigationAction.setTab('Map'));
+              }}>
               <Avatar.Icon
                 style={styles.avtar6}
                 icon="google-maps"
@@ -306,7 +329,11 @@ const Container = () => {
             <Text style={styles.text}>Maps</Text>
           </View>
           <View style={styles.containerAvtar}>
-            <TouchableOpacity onPress={() => setData(reportsData)}>
+            <TouchableOpacity
+              onPress={() => {
+                setData(reportsData);
+                dispatch(navigationAction.setTab('Reports'));
+              }}>
               <Avatar.Icon
                 style={styles.avtar7}
                 icon="file-document"
@@ -361,6 +388,7 @@ const styles = StyleSheet.create({
     flex: 2,
     height: 100,
     paddingLeft: 5,
+    paddingTop: 5,
   },
   containerAvtar: {
     marginHorizontal: 5,
